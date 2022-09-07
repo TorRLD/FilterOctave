@@ -8,7 +8,7 @@
 % de acordo com o filtro escolhido
 % The filter parameters have been choosing trhough of tests
 %REnter the filter number:
-ans = input ("Enter 1 for LP, 2 for BP ou 3 para HP\n" );
+ans = input ("Enter 1 for LP, 2 for BP or 3 para HP\n" );
 % Band-Pass
 if ans == 2
 printf("\nYou choosed the Band-Pass filter");
