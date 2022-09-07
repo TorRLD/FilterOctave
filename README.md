@@ -5,4 +5,4 @@ This algorithm is for filter a voice record. The filters that was used are Low-P
 
 #2 It's a basic application for the understanding of digital filters.
 
-07/09/2022
+
