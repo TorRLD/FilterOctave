@@ -6,37 +6,38 @@
 %_____________________________________________________________________
 % A ideia deste algoritmo é filtrar um áudio gravado
 % de acordo com o filtro escolhido
-%Recebe o número correspondente ao tipo de filtro:
-ans = input ("Escolha 1 para PB, 2 PARA PF ou 3 para PA\n" );
-% Filtro Passa-faixa (médios)
+% The filter parameters have been choosing trhough of tests
+%REnter the filter number:
+ans = input ("Enter 1 for LP, 2 for BP ou 3 para HP\n" );
+% Band-Pass
 if ans == 2
-printf("\nVocê escolheu o filtro Passa-faixa");
+printf("\nYou choosed the Band-Pass filter");
 f = [ 0 0.10 0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.90 0.95 1];
 s = [0.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 0 0 0 0 ];
 end
-%Filtro Passa-baixa (graves)
+%Low-Pass
 if ans == 1
-printf("\nVocê escolheu o filtro Passa-baixa");
+printf("\nYou choosed the Low-Pass filter");
 f = [ 0 0.10 0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.90 0.95 1];
 s = [1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0 0 0 0 ];
 end
-%Filtro Passa-alta (agudos)
+%High-Pass
 if ans == 3
-printf("\nVocê escolheu o filtro Passa-alta");
+printf("\nYou choosed the High-Pass filter");
 f = [ 0 0.10 0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.90 0.95 1];
 s = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1 1 1 1 ];
 end
-printf("\nGrave seu áudio de 5 segundos!");
-pause(0.2); %espera 200 milisegundos para o áudio ser gravado
-N = 32; %Número de Taps
-h = remez(N,f,s); %Função responsável por calcular o filtro
+printf("\nRecord your 5 seconds audio!");
+pause(0.2); %Waiting 200 miliseconds for the audio to be record
+N = 32; %Number of Taps
+h = remez(N,f,s); %Function to calcule the filter
 y = record(5, fs); %Grava áudio de 5 segundos e armazena a frequência de amostragem em fs
 sound(y,fs); %reproduz arquivo de áudio original
 subplot(311);
-plot(y);%plota gráfico do sinal de áudio no domínio t
-xlabel 'Tempo em milisegundos', ylabel 'Amplitude'
-legend('Gravação do áudio');
-title(['Sinal de áudio"']);
+plot(y);%Plot time domain
+xlabel 'Time (milliseconds)', ylabel 'Amplitude'
+legend('Audio record');
+title(['Audio sign"']);
 [H,w] = freqz(h,1,512);%Resposta em frequência do Filtro
 %frequencia armazenada na variável w
 subplot(312);
