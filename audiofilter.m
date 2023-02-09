@@ -3,6 +3,7 @@
 % A U D I O    F I L T E R
 %
 % By: Heitor Lemos (TorRLD)
+%
 %_____________________________________________________________________
 % A ideia deste algoritmo é filtrar um áudio gravado
 % de acordo com o filtro escolhido
