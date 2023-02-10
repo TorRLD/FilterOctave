@@ -5,8 +5,8 @@
 % By: Heitor Lemos (TorRLD)
 %
 %_____________________________________________________________________
-% A ideia deste algoritmo é filtrar um áudio gravado
-% de acordo com o filtro escolhido
+% The idea this algorithm is filter a record audio
+% according to the choosed filter
 % The filter parameters have been choosing trhough of tests
 %REnter the filter number:
 ans = input ("Enter 1 for LP, 2 for BP or 3 para HP\n" );
